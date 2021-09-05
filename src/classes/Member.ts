@@ -10,5 +10,4 @@ export default class Member {
         this.email = email
         this.skipWeekDay = skipWeekDay
     }
-
 }

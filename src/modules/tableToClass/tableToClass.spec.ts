@@ -5,7 +5,7 @@ describe('tableToClass', ()=>{
     tableToClass(testData)
     test('test globalConfig', ()=>{
         expect(globalConfig.startDate?.format('YYYY/MM/DD')).toBe('2021/09/06')
-        expect(globalConfig.assignMember).toBe('ぎらっくる～')
+        expect(globalConfig.assignMember).toBe('test')
         expect(globalConfig.period).toBe(1)
         expect(globalConfig.skipHoliday).toBe(true)
         expect(globalConfig.skipWeekDays['金']).toBe(true)

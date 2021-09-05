@@ -32,6 +32,8 @@ class GlobalConfig {
 
     public members: Member[] = []
 
+    public holidays: Dayjs[] = []
+
     private constructor() {
     }
     static getInstance() {
@@ -39,6 +41,15 @@ class GlobalConfig {
             GlobalConfig.instance = new GlobalConfig();
         }
         return GlobalConfig.instance;
+    }
+
+    get endDate() {
+        if(!this.startDate || !this.period) return null
+        return this.startDate.add(this.period, 'month')
+    }
+
+    get firstMember() {
+        return this.members.find((testMember)=>testMember.name === this.assignMember)
     }
 
 }
