@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import globalConfig from "../../classes/globalConfig";
 
-export default async function() {
+export default function() {
     if(globalConfig.skipHoliday) {
         const calendar = CalendarApp.getCalendarById('ja.japanese#holiday@group.v.calendar.google.com')
         if(!globalConfig.startDate || !globalConfig.endDate) throw new Error('開始日が設定されていません。')

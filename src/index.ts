@@ -14,16 +14,16 @@ global.doGet = () => {
   setHolidays()
   const schedules = makeSchedule()
   const scheduleFormat = () => {
-    schedules.map(schedule=>{
+    return schedules.map(schedule=>{
       return {
-        '日付': schedule.date.format('MM/DD (d)'),
+        '日付': schedule.date.format('MM/DD (ddd)'),
         '担当': schedule.member.name,
 
       }
 
     })
   }
-  const result = Browser.msgBox(`こちらの内容でカレンダーの予定を作成します。${scheduleFormat()}`,Browser.Buttons.OK_CANCEL);
+  const result = Browser.msgBox(`こちらの内容でカレンダーの予定を作成します。${JSON.stringify(scheduleFormat())}`,Browser.Buttons.OK_CANCEL);
   if(result=="ok"){
     inviteCalendar(schedules)
     Browser.msgBox("完了");
