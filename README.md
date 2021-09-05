@@ -12,7 +12,7 @@
 # 使い方
 
 1. [スプシ](https://docs.google.com/spreadsheets/d/1jUQ80Czucg-SqM58kyF4lbLXFmOnS7sJpx58Z61MtB0/edit?usp=sharing)を複製して内容を埋める
-1. スプシに戻ってツール＞マクロ＞doGetを実行
+1. ツール＞マクロ＞doGetを実行
 1. 確認画面が出るのでOKするとカレンダーの予定を作成する
 
 # 自分でデプロイしたい場合
