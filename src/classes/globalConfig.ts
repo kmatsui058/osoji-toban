@@ -1,31 +1,38 @@
 import dayjs from 'dayjs'
 import Member from './Member';
+export type WeekDays = '月' | '火' | '水' | '木' | '金' | '土' | '日'
+export const weekDays: WeekDays[] = [ '月', '火', '水', '木', '金', '土', '日']
+
+export function isWeekDay(test: any): test is WeekDays {
+    return weekDays.includes(test)
+}
 
 class GlobalConfig {
     private static instance: GlobalConfig;
 
-    public startDate: dayjs.Dayjs
-    public assignMember: typeof Member.name
-    public period: number
-
-    private constructor(startDate: dayjs.Dayjs,  assignMember: typeof Member.name, period: number ) {
-        this.startDate = startDate
-        this.assignMember = assignMember
-        this.period = period
+    public startDate: dayjs.Dayjs | null = null
+    public assignMember: typeof Member.name | null = null
+    public period: number | null = null
+    public skipHoliday: boolean | null = null
+    public skipWeekDays: { [key in WeekDays]: boolean} = {
+        '土': false,
+        '日': false,
+        '月': false,
+        '木': false,
+        '水': false,
+        '火': false,
+        '金': false
     }
-    static getInstance(startDate: dayjs.Dayjs,  assignMember: typeof Member.name, period: number) {
+
+    private constructor( ) {
+    }
+    static getInstance() {
         if (!GlobalConfig.instance) {
-            GlobalConfig.instance = new GlobalConfig(startDate,  assignMember, period);
+            GlobalConfig.instance = new GlobalConfig();
         }
         return GlobalConfig.instance;
     }
     
 }
 
-let instance: GlobalConfig | null = null
-
-export const initialize = (startDate: dayjs.Dayjs,  assignMember: typeof Member.name, period: number) => {
-    instance = GlobalConfig.getInstance(startDate,  assignMember, period)
-}
-
-export default instance
+export default  GlobalConfig.getInstance()

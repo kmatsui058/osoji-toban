@@ -1,4 +1,5 @@
-export type WeekDays = '月' | '火' | '水' | '木' | '金' | '土' | '日'
+import { WeekDays } from "./globalConfig"
+
 export default class Member {
     public readonly name: string
     public readonly email: string
