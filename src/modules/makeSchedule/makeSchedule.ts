@@ -1,7 +1,7 @@
 import globalConfig, { WeekDays } from "../../classes/globalConfig";
 import Member from "../../classes/Member";
 import { Schedule } from "../../classes/Schedule";
-import getWeekDay from "../getWeekDay.ts/getWeekDay";
+import getWeekDay from "../getWeekDay/getWeekDay";
 import isSkipDate from "./isSkipDate";
 
 export function makeSchedule(): Schedule[] {
@@ -37,7 +37,6 @@ export function makeSchedule(): Schedule[] {
 
 function getNextMember(weekDay: WeekDays, stockMember: Member[]): Member {
     for (let i = 0; i < stockMember.length;i +=1) {
-        console.log({stockMember})
         const testMember = stockMember[i]
         if (!testMember.skipWeekDay[weekDay]) {
             stockMember.splice(i,1)

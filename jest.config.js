@@ -10,6 +10,6 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
   ],
-
   testEnvironment: 'node',
+  globalSetup: './jest.setup.ts',
 };

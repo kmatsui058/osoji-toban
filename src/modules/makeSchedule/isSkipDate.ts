@@ -1,6 +1,6 @@
 import { Dayjs } from "dayjs";
 import globalConfig from "../../classes/globalConfig";
-import getWeekDay from "../getWeekDay.ts/getWeekDay";
+import getWeekDay from "../getWeekDay/getWeekDay";
 
 export default function isSkipDate(date: Dayjs): boolean {
     const weekDay = getWeekDay(date)

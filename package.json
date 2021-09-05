@@ -17,6 +17,8 @@
     "@types/google-apps-script": "^1.0.37",
     "babel-jest": "^27.1.0",
     "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "jest": "^27.1.0",
     "npm-watch": "^0.11.0"
   },
