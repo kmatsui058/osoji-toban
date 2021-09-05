@@ -1,7 +1,6 @@
 const path = require('path');
 const GasPlugin = require('gas-webpack-plugin');
 const Es3ifyPlugin = require('es3ify-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -24,5 +23,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new GasPlugin(), new Es3ifyPlugin(), new Dotenv()]
+  plugins: [new GasPlugin(), new Es3ifyPlugin()]
 };

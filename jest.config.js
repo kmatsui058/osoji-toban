@@ -11,5 +11,4 @@ module.exports = {
     '<rootDir>/src/**/*.ts',
   ],
   testEnvironment: 'node',
-  globalSetup: './jest.setup.ts',
 };

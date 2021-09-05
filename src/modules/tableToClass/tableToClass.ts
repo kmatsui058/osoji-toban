@@ -18,6 +18,9 @@ export default function tableToClass(table: any[][]) {
                 if(cell === '祝日') {
                     globalConfig.skipHoliday = table[i+1][j] === 'skip'
                 }
+                if(cell === '見出し') {
+                    globalConfig.title = table[i+1][j]
+                }
                 setSkipWeekDays(cell, i, j, table)
                 setSkipDays(cell, i, j, table)
                 setMembers(cell, i, j, table)

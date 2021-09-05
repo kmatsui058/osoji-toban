@@ -34,6 +34,8 @@ class GlobalConfig {
 
     public holidays: Dayjs[] = []
 
+    public title = ''
+
     private constructor() {
     }
     static getInstance() {
