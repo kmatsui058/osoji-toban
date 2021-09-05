@@ -1,5 +1,8 @@
 # osoji-toban
 お掃除当番カレンダーを作るやつ
+![お掃除当番テスト のコピー - Google スプレッドシート - Google Chrome 2021_09_06 2_37_41](https://user-images.githubusercontent.com/40171289/132136236-d44f1a9c-6dc4-431b-bbb8-118865578912.png)
+![Google カレンダー - 2021年 9月 6日の週 - Google Chrome 2021_09_06 2_37_46](https://user-images.githubusercontent.com/40171289/132136237-49bf4f85-df22-4ab5-836d-3e4464f552e3.png)
+
 
 # 機能
 - スプシに登録した人を上から順に毎日当番に割り当ててgoogleカレンダーに招待します。
