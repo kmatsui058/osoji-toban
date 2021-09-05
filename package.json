@@ -1,11 +1,20 @@
 {
+  "watch": {
+    "deploy": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts"
+    }
+  },
   "scripts": {
     "build": "webpack",
     "deploy": "npm run build && clasp push",
-    "watch": "watch 'npm run deploy' ./src"
+    "watch": "npm-watch deploy"
   },
   "dependencies": {
-    "@types/google-apps-script": "^1.0.37"
+    "@types/google-apps-script": "^1.0.37",
+    "npm-watch": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
