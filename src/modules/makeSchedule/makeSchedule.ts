@@ -14,18 +14,20 @@ export function makeSchedule(): Schedule[] {
         const weekDay = getWeekDay(testDate)
         if(member.skipWeekDay[weekDay]) {
             stockMember.push(member)
-            member = getNextMember(member, weekDay, stockMember)
+            member = getNextMember(weekDay, stockMember)
+        } else {
+            member.isDone = true
         }
         result.push(new Schedule(testDate, member))
     }
     do {
+        testDate = testDate.add(1, 'day')
         if (!isSkipDate(testDate)) {
             const weekDay = getWeekDay(testDate)
-            member = getNextMember(member, weekDay, stockMember)
+            member = getNextMember(weekDay, stockMember)
             result.push(new Schedule(testDate, member))
         }
-        testDate = testDate.add(1, 'day') || null
-    } while (globalConfig.endDate.isSame(testDate, 'day'));
+    } while (!globalConfig.endDate.isSame(testDate, 'day'));
 
 
     return result
@@ -33,25 +35,33 @@ export function makeSchedule(): Schedule[] {
 
 
 
-function getNextMember(member: Member, weekDay: WeekDays, stockMember: Member[]): Member {
-    for (let testMember of stockMember) {
+function getNextMember(weekDay: WeekDays, stockMember: Member[]): Member {
+    for (let i = 0; i < stockMember.length;i +=1) {
+        console.log({stockMember})
+        const testMember = stockMember[i]
         if (!testMember.skipWeekDay[weekDay]) {
+            stockMember.splice(i,1)
+            testMember.isDone = false
             return testMember
         }
     }
-    const currentIndex = globalConfig.members.findIndex((testMember => testMember.email === member.email))
-    for (let i = currentIndex + 1; i < globalConfig.members.length; i += 1) {
-        if (!globalConfig.members[i].skipWeekDay[weekDay]) {
-            return globalConfig.members[i]
-        } else {
-            stockMember.push(globalConfig.members[i])
+    const notDoneMember = globalConfig.members.filter(testMember=>!testMember.isDone)
+    if(notDoneMember.length) {
+        for(let i = 0; i < notDoneMember.length; i +=1) {
+            const testMember = notDoneMember[i]
+            if(!testMember.skipWeekDay[weekDay]) {
+                notDoneMember[i].isDone = true
+                return notDoneMember[i]
+            }
         }
+        notDoneMember.forEach((target) =>stockMember.push(target))
     }
-    for (let i = 0; i < globalConfig.members.length; i += 1) {
-        if (!globalConfig.members[i].skipWeekDay[weekDay]) {
+    globalConfig.members.forEach(testMember=>testMember.isDone=false)
+    for(let i = 0; i < globalConfig.members.length; i +=1) {
+        const testMember = globalConfig.members[i]
+        if(!testMember.skipWeekDay[weekDay]) {
+            globalConfig.members[i].isDone = true
             return globalConfig.members[i]
-        } else {
-            stockMember.push(globalConfig.members[i])
         }
     }
     throw Error('該当者なし')
