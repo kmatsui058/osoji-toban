@@ -8,15 +8,13 @@
 
 # 使い方
 
-1. 下記スプシを複製して内容を埋める
-https://docs.google.com/spreadsheets/d/1jUQ80Czucg-SqM58kyF4lbLXFmOnS7sJpx58Z61MtB0/edit?usp=sharing
+1. [スプシ](https://docs.google.com/spreadsheets/d/1jUQ80Czucg-SqM58kyF4lbLXFmOnS7sJpx58Z61MtB0/edit?usp=sharing)を複製して内容を埋める
 1. スプシに戻ってツール＞マクロ＞doGetを実行
 1. 確認画面が出るのでOKするとカレンダーの予定を作成する
 
 # 自分でデプロイしたい場合
 
-1. 下記スプシを複製して内容を埋める
-https://docs.google.com/spreadsheets/d/1jUQ80Czucg-SqM58kyF4lbLXFmOnS7sJpx58Z61MtB0/edit?usp=sharing
+1. [スプシ](https://docs.google.com/spreadsheets/d/1jUQ80Czucg-SqM58kyF4lbLXFmOnS7sJpx58Z61MtB0/edit?usp=sharing)を複製して内容を埋める
 1. スクリプトエディタを起動し、プロジェクトの設定からスクリプトIDをコピーして.clisp.jsonのscriptIdを上書きする
 1. yarnしてclasp loginしたらyarn deployする。上書きするか聞かれるのでyで進める。
 1. スプシに戻ってツール＞マクロ＞インポートでdoGetを追加
