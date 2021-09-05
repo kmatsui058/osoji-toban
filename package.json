@@ -10,19 +10,26 @@
   "scripts": {
     "build": "webpack",
     "deploy": "npm run build && clasp push",
-    "watch": "npm-watch deploy"
+    "watch": "npm-watch deploy",
+    "test": "jest"
   },
   "dependencies": {
     "@types/google-apps-script": "^1.0.37",
+    "babel-jest": "^27.1.0",
+    "dayjs": "^1.10.6",
+    "jest": "^27.1.0",
     "npm-watch": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
     "babel-loader": "^8.2.2",
     "es3ify-webpack-plugin": "^0.1.0",
     "gas-webpack-plugin": "^2.1.0",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.2",
     "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0"
   }

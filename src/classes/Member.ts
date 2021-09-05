@@ -1,0 +1,13 @@
+export type WeekDays = '月' | '火' | '水' | '木' | '金' | '土' | '日'
+export default class Member {
+    public readonly name: string
+    public readonly email: string
+    public readonly skipWeekDay: {[key in WeekDays]: boolean}
+
+    constructor(name: string, email: string, skipWeekDay: {[key in WeekDays]: boolean}) {
+        this.name = name
+        this.email = email
+        this.skipWeekDay = skipWeekDay
+    }
+
+}
