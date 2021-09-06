@@ -21,6 +21,9 @@ export default function tableToClass(table: any[][]) {
                 if(cell === '見出し') {
                     globalConfig.title = table[i+1][j]
                 }
+                if(cell === 'カレンダーID') {
+                    globalConfig.calendarId = table[i+1][j]
+                }
                 setSkipWeekDays(cell, i, j, table)
                 setSkipDays(cell, i, j, table)
                 setMembers(cell, i, j, table)

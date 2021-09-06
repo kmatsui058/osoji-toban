@@ -8,6 +8,7 @@ describe('tableToClass', ()=>{
         expect(globalConfig.assignMember).toBe('test')
         expect(globalConfig.period).toBe(2)
         expect(globalConfig.title).toBe('お掃除当番')
+        expect(globalConfig.calendarId).toBe('41n7iccnkh93v220oohrqa3rs0@group.calendar.google.com')
         expect(globalConfig.skipHoliday).toBe(true)
         expect(globalConfig.skipWeekDays['金']).toBe(true)
         expect(globalConfig.skipWeekDays['月']).toBe(false)

@@ -36,6 +36,8 @@ class GlobalConfig {
 
     public title = ''
 
+    public calendarId = ''
+
     private constructor() {
     }
     static getInstance() {
