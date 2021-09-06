@@ -19,7 +19,16 @@ describe('tableToClass', ()=>{
         expect(globalConfig.members[2].skipWeekDay['木']).toBe(false)
         expect(globalConfig.members[2].skipWeekDay['土']).toBe(false)
         expect(globalConfig.members[2].skipWeekDay['日']).toBe(false)
+    })
 
+    test('最初の人以外が次の担当だったら、それより前の人はやったことにする', ()=>{
+        console.log(testData[2][2] + '')
+        testData[2][2] = globalConfig.members[1].name
+        console.log(testData[2][2])
+        tableToClass(testData)
+        expect(globalConfig.members[0].isDone).toBe(true)
+        expect(globalConfig.members[1].isDone).toBe(false)
+        expect(globalConfig.members[2].isDone).toBe(false)
     })
 
 })

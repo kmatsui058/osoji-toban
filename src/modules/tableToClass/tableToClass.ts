@@ -55,6 +55,7 @@ function setSkipDays(cell: any, i: number, j: number, table: any[]) {
 function setMembers(cell: any, i: number, j: number, table: any[]) {
     if(cell === '名前') {
         globalConfig.members = []
+        let assignMember: Member | null = null
         for(let k = i + 1; k < table.length; k +=1 ) {
             const test = table[k][j]
             if(test) {
@@ -67,7 +68,17 @@ function setMembers(cell: any, i: number, j: number, table: any[]) {
                         skipWeekDays[weekDay] = true
                     }
                 })
-                globalConfig.members.push(new Member(name, email, skipWeekDays))
+                const newMember = new Member(name, email, skipWeekDays)
+                if (globalConfig.assignMember === newMember.name) {
+                    assignMember = newMember
+                    console.log({assignMember})
+                }
+                if(assignMember === null) {
+                    console.log({assignMember2: assignMember})
+                    // 次の担当より前の人はもうやったことにしておく
+                    newMember.isDone = true
+                }
+                globalConfig.members.push(newMember)
             } 
         }
     }
